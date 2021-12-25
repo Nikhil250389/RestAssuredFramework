@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Regression Suite]">
+  <listeners>
+    <listener class-name="com.Listeners.Listneners"/>
+  </listeners>
+  <test name="Verify the Binding and Rebinding functionality testcases(failed)">
+    <groups>
+      <run>
+        <include name="regression"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="APITestcases.BindingAndRebinding">
+        <methods>
+          <include name="createBorrowerUser"/>
+          <include name="userLogin"/>
+        </methods>
+      </class> <!-- APITestcases.BindingAndRebinding -->
+    </classes>
+  </test> <!-- Verify the Binding and Rebinding functionality testcases(failed) -->
+</suite> <!-- Failed suite [Regression Suite] -->

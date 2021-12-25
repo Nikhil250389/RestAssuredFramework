@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Suite">
+<groups>
+<run>
+<include name="regression"></include>
+</run>
+</groups>
+	<listeners>
+		<listener class-name="com.Listeners.Listneners" />
+	</listeners>
+	<test name="Verify the Borrower User functionality testcase">
+		<classes>
+			<class name="APITestcases.BorrowerUser" />
+		</classes>
+	</test> <!-- Test -->
+	<test name="Verify the Binding and Rebinding functionality testcases">
+		<classes>
+			<class name="APITestcases.BindingAndRebinding" />
+		</classes>
+	</test> <!-- Test -->
+	<test name="Verify the Credit Limit functionality testcases">
+		<classes>
+			<class name="APITestcases.CreditLimit" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test name="Verify by update Credit Limit functionality testcases">
+		<classes>
+			<class name="APITestcases.UpdateCreditLimit" />
+		</classes>
+	</test> <!-- Test -->
+
+
+
+
+</suite> <!-- Suite -->

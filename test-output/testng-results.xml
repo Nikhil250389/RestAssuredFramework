@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="540" started-at="2021-12-25T18:36:06Z" finished-at="2021-12-25T18:36:06Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="540" started-at="2021-12-25T18:36:06Z" finished-at="2021-12-25T18:36:06Z">
+      <class name="DataDrivenTest.dataProvide">
+        <test-method status="PASS" signature="testCaseData(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:DataDrivenTest.dataProvide@6e1567f1]" name="testCaseData" duration-ms="7" started-at="2021-12-26T00:06:06Z" data-provider="driveTest" finished-at="2021-12-26T00:06:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[nik]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[QA]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[1107]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCaseData -->
+        <test-method status="PASS" signature="testCaseData(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:DataDrivenTest.dataProvide@6e1567f1]" name="testCaseData" duration-ms="1" started-at="2021-12-26T00:06:06Z" data-provider="driveTest" finished-at="2021-12-26T00:06:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Agastya]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[IAS]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[4]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCaseData -->
+      </class> <!-- DataDrivenTest.dataProvide -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

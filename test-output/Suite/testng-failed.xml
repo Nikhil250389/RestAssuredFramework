@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="com.Listeners.Listneners"/>
+  </listeners>
+  <test name="Verify the Borrower User functionality testcase(failed)">
+    <groups>
+      <run>
+        <include name="smoke"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="APITestcases.BorrowerUser">
+        <methods>
+          <include name="userLogin"/>
+          <include name="createBorrowerUser"/>
+        </methods>
+      </class> <!-- APITestcases.BorrowerUser -->
+    </classes>
+  </test> <!-- Verify the Borrower User functionality testcase(failed) -->
+</suite> <!-- Failed suite [Suite] -->

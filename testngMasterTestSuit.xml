@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Master Automation testcase Suite">
+<listeners>
+<listener class-name="com.Listeners.Listneners"/>
+</listeners>
+<suite-files>
+<suite-file path="./testngRegressionTestCases.xml"></suite-file>
+<suite-file path="./testngSmokeTestCases.xml"></suite-file>
+</suite-files>
+
+
+</suite> <!-- Suite -->

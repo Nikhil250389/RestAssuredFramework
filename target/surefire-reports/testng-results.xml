@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="9" total="17" passed="8">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Regression Suite" duration-ms="65526" started-at="2021-12-25T18:43:39Z" finished-at="2021-12-25T18:44:45Z">
+    <groups>
+      <group name="regression">
+        <method signature="BorrowerUser.createBorrowerUser()[pri:1, instance:APITestcases.BorrowerUser@4afcd809]" name="createBorrowerUser" class="APITestcases.BorrowerUser"/>
+        <method signature="BorrowerUser.checkExistingBorrowerUser()[pri:3, instance:APITestcases.BorrowerUser@4afcd809]" name="checkExistingBorrowerUser" class="APITestcases.BorrowerUser"/>
+        <method signature="BorrowerUser.createBorrowerWithDuplicateValues()[pri:2, instance:APITestcases.BorrowerUser@4afcd809]" name="createBorrowerWithDuplicateValues" class="APITestcases.BorrowerUser"/>
+        <method signature="BorrowerUser.updatedBorrowerUser()[pri:4, instance:APITestcases.BorrowerUser@4afcd809]" name="updatedBorrowerUser" class="APITestcases.BorrowerUser"/>
+        <method signature="BindingAndRebinding.bindingUserWithInValidPartner()[pri:3, instance:APITestcases.BindingAndRebinding@dd05255]" name="bindingUserWithInValidPartner" class="APITestcases.BindingAndRebinding"/>
+        <method signature="BindingAndRebinding.bindingUserWithValidPartner()[pri:2, instance:APITestcases.BindingAndRebinding@dd05255]" name="bindingUserWithValidPartner" class="APITestcases.BindingAndRebinding"/>
+        <method signature="BindingAndRebinding.createBorrowerUser()[pri:1, instance:APITestcases.BindingAndRebinding@dd05255]" name="createBorrowerUser" class="APITestcases.BindingAndRebinding"/>
+        <method signature="BindingAndRebinding.rebundingWithSameUser()[pri:4, instance:APITestcases.BindingAndRebinding@dd05255]" name="rebundingWithSameUser" class="APITestcases.BindingAndRebinding"/>
+      </group> <!-- regression -->
+      <group name="smoke">
+        <method signature="BorrowerUser.createBorrowerUser()[pri:1, instance:APITestcases.BorrowerUser@4afcd809]" name="createBorrowerUser" class="APITestcases.BorrowerUser"/>
+        <method signature="BorrowerUser.checkExistingBorrowerUser()[pri:3, instance:APITestcases.BorrowerUser@4afcd809]" name="checkExistingBorrowerUser" class="APITestcases.BorrowerUser"/>
+        <method signature="BorrowerUser.createBorrowerWithDuplicateValues()[pri:2, instance:APITestcases.BorrowerUser@4afcd809]" name="createBorrowerWithDuplicateValues" class="APITestcases.BorrowerUser"/>
+        <method signature="BorrowerUser.updatedBorrowerUser()[pri:4, instance:APITestcases.BorrowerUser@4afcd809]" name="updatedBorrowerUser" class="APITestcases.BorrowerUser"/>
+        <method signature="BindingAndRebinding.bindingUserWithInValidPartner()[pri:3, instance:APITestcases.BindingAndRebinding@dd05255]" name="bindingUserWithInValidPartner" class="APITestcases.BindingAndRebinding"/>
+        <method signature="BindingAndRebinding.bindingUserWithValidPartner()[pri:2, instance:APITestcases.BindingAndRebinding@dd05255]" name="bindingUserWithValidPartner" class="APITestcases.BindingAndRebinding"/>
+        <method signature="BindingAndRebinding.createBorrowerUser()[pri:1, instance:APITestcases.BindingAndRebinding@dd05255]" name="createBorrowerUser" class="APITestcases.BindingAndRebinding"/>
+        <method signature="BindingAndRebinding.rebundingWithSameUser()[pri:4, instance:APITestcases.BindingAndRebinding@dd05255]" name="rebundingWithSameUser" class="APITestcases.BindingAndRebinding"/>
+      </group> <!-- smoke -->
+    </groups>
+    <test name="Verify the Borrower User functionality testcase" duration-ms="44378" started-at="2021-12-25T18:43:39Z" finished-at="2021-12-25T18:44:23Z">
+      <class name="APITestcases.BorrowerUser">
+        <test-method status="PASS" signature="userLogin()[pri:0, instance:APITestcases.BorrowerUser@4afcd809]" name="userLogin" is-config="true" duration-ms="3414" started-at="2021-12-25T18:43:39Z" finished-at="2021-12-25T18:43:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userLogin -->
+        <test-method status="PASS" signature="createBorrowerUser()[pri:1, instance:APITestcases.BorrowerUser@4afcd809]" name="createBorrowerUser" duration-ms="6141" started-at="2021-12-25T18:43:42Z" finished-at="2021-12-25T18:43:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createBorrowerUser -->
+        <test-method status="PASS" signature="userLogin()[pri:0, instance:APITestcases.BorrowerUser@4afcd809]" name="userLogin" is-config="true" duration-ms="1190" started-at="2021-12-25T18:43:49Z" finished-at="2021-12-25T18:43:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userLogin -->
+        <test-method status="PASS" signature="createBorrowerWithDuplicateValues()[pri:2, instance:APITestcases.BorrowerUser@4afcd809]" name="createBorrowerWithDuplicateValues" duration-ms="1109" started-at="2021-12-25T18:43:50Z" depends-on-methods="APITestcases.BorrowerUser.createBorrowerUser" finished-at="2021-12-25T18:43:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createBorrowerWithDuplicateValues -->
+        <test-method status="PASS" signature="userLogin()[pri:0, instance:APITestcases.BorrowerUser@4afcd809]" name="userLogin" is-config="true" duration-ms="1166" started-at="2021-12-25T18:43:51Z" finished-at="2021-12-25T18:43:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userLogin -->
+        <test-method status="PASS" signature="checkExistingBorrowerUser()[pri:3, instance:APITestcases.BorrowerUser@4afcd809]" name="checkExistingBorrowerUser" duration-ms="16505" started-at="2021-12-25T18:43:52Z" depends-on-methods="APITestcases.BorrowerUser.createBorrowerUser" finished-at="2021-12-25T18:44:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkExistingBorrowerUser -->
+        <test-method status="PASS" signature="userLogin()[pri:0, instance:APITestcases.BorrowerUser@4afcd809]" name="userLogin" is-config="true" duration-ms="1217" started-at="2021-12-25T18:44:09Z" finished-at="2021-12-25T18:44:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userLogin -->
+        <test-method status="PASS" signature="updatedBorrowerUser()[pri:4, instance:APITestcases.BorrowerUser@4afcd809]" name="updatedBorrowerUser" duration-ms="1255" started-at="2021-12-25T18:44:10Z" depends-on-methods="APITestcases.BorrowerUser.createBorrowerUser" finished-at="2021-12-25T18:44:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updatedBorrowerUser -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:APITestcases.BorrowerUser@4afcd809]" name="cleanUp" is-config="true" duration-ms="12349" started-at="2021-12-25T18:44:11Z" finished-at="2021-12-25T18:44:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- APITestcases.BorrowerUser -->
+    </test> <!-- Verify the Borrower User functionality testcase -->
+    <test name="Verify the Binding and Rebinding functionality testcases" duration-ms="20762" started-at="2021-12-25T18:44:24Z" finished-at="2021-12-25T18:44:44Z">
+      <class name="APITestcases.BindingAndRebinding">
+        <test-method status="PASS" signature="userLogin()[pri:0, instance:APITestcases.BindingAndRebinding@dd05255]" name="userLogin" is-config="true" duration-ms="1198" started-at="2021-12-25T18:44:24Z" finished-at="2021-12-25T18:44:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userLogin -->
+        <test-method status="PASS" signature="createBorrowerUser()[pri:1, instance:APITestcases.BindingAndRebinding@dd05255]" name="createBorrowerUser" duration-ms="1526" started-at="2021-12-25T18:44:25Z" finished-at="2021-12-25T18:44:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createBorrowerUser -->
+        <test-method status="PASS" signature="userLogin()[pri:0, instance:APITestcases.BindingAndRebinding@dd05255]" name="userLogin" is-config="true" duration-ms="1176" started-at="2021-12-25T18:44:26Z" finished-at="2021-12-25T18:44:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userLogin -->
+        <test-method status="PASS" signature="bindingUserWithValidPartner()[pri:2, instance:APITestcases.BindingAndRebinding@dd05255]" name="bindingUserWithValidPartner" duration-ms="917" started-at="2021-12-25T18:44:28Z" finished-at="2021-12-25T18:44:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bindingUserWithValidPartner -->
+        <test-method status="PASS" signature="userLogin()[pri:0, instance:APITestcases.BindingAndRebinding@dd05255]" name="userLogin" is-config="true" duration-ms="1183" started-at="2021-12-25T18:44:29Z" finished-at="2021-12-25T18:44:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userLogin -->
+        <test-method status="PASS" signature="bindingUserWithInValidPartner()[pri:3, instance:APITestcases.BindingAndRebinding@dd05255]" name="bindingUserWithInValidPartner" duration-ms="882" started-at="2021-12-25T18:44:30Z" finished-at="2021-12-25T18:44:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bindingUserWithInValidPartner -->
+        <test-method status="PASS" signature="userLogin()[pri:0, instance:APITestcases.BindingAndRebinding@dd05255]" name="userLogin" is-config="true" duration-ms="1184" started-at="2021-12-25T18:44:31Z" finished-at="2021-12-25T18:44:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- userLogin -->
+        <test-method status="PASS" signature="rebundingWithSameUser()[pri:4, instance:APITestcases.BindingAndRebinding@dd05255]" name="rebundingWithSameUser" duration-ms="922" started-at="2021-12-25T18:44:32Z" finished-at="2021-12-25T18:44:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rebundingWithSameUser -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:APITestcases.BindingAndRebinding@dd05255]" name="cleanUp" is-config="true" duration-ms="11771" started-at="2021-12-25T18:44:33Z" finished-at="2021-12-25T18:44:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- APITestcases.BindingAndRebinding -->
+    </test> <!-- Verify the Binding and Rebinding functionality testcases -->
+    <test name="Verify the Credit Limit functionality testcases" duration-ms="0" started-at="2021-12-25T18:44:45Z" finished-at="2021-12-25T18:44:45Z">
+    </test> <!-- Verify the Credit Limit functionality testcases -->
+    <test name="Verify by update Credit Limit functionality testcases" duration-ms="0" started-at="2021-12-25T18:44:45Z" finished-at="2021-12-25T18:44:45Z">
+    </test> <!-- Verify by update Credit Limit functionality testcases -->
+  </suite> <!-- Regression Suite -->
+</testng-results>

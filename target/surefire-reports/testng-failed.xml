@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="com.Listeners.Listneners"/>
+  </listeners>
+  <test thread-count="5" verbose="0" name="Verify the Borrower User functionality testcase(failed)">
+    <classes>
+      <class name="APITestcases.BorrowerUser">
+        <methods>
+          <include name="userLogin"/>
+          <include name="checkExistingBorrowerUser"/>
+          <include name="createBorrowerWithDuplicateValues"/>
+          <include name="updatedBorrowerUser"/>
+          <include name="createBorrowerUser"/>
+        </methods>
+      </class> <!-- APITestcases.BorrowerUser -->
+    </classes>
+  </test> <!-- Verify the Borrower User functionality testcase(failed) -->
+</suite> <!-- Failed suite [Suite] -->
