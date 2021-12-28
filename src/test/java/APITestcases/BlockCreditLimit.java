@@ -25,7 +25,7 @@ import static org.testng.Assert.assertEquals;
 
 import java.sql.SQLException;
 
-public class CreditLimit {
+public class BlockCreditLimit {
 	ReuseableMethods.OracleConnection oc;
 	String UserLoginId;
 	String Token;
@@ -46,10 +46,10 @@ public class CreditLimit {
 	String checkerLoginURI = RestUtill.Utilities.getPropertyValue(configProperty, "checkerLoginURI");
 	String createBorrowerUserURI = RestUtill.Utilities.getPropertyValue(configProperty, "createBorrowerUserURI");
 	String UserId = RestUtill.Utilities.getPropertyValue(configProperty, "userId");
-	String creditLimitURI = RestUtill.Utilities.getPropertyValue(configProperty, "creditLimitURI");
+	String blockCreditLimitURI = RestUtill.Utilities.getPropertyValue(configProperty, "blockCreditLimitURI");
 	String bindingOrReBindingURI = RestUtill.Utilities.getPropertyValue(configProperty, "bindingOrReBindingURI");
 
-	public static Logger log = LogManager.getLogger(CreditLimit.class.getName());
+	public static Logger log = LogManager.getLogger(BlockCreditLimit.class.getName());
 	SoftAssert softassert = new SoftAssert();
 
 	@BeforeMethod()
@@ -108,13 +108,13 @@ public class CreditLimit {
 	}
 
 	@Test(priority = 3)
-	public void createCreditLimit() throws SQLException {
-		log.info("Verify by create credit limit to User ");
+	public void blockCreditLimit() throws SQLException {
+		log.info("Verify by block credit limit to User ");
 		RestAssured.baseURI = baseURILoan;
 		String creditLimitData = given().log().all().spec(reuseableMethods.setup())
 				.header("Authorization", "Bearer" + " " + Token).header("userId", UserLoginId)
-				.body(PayLoads.RequestPayloads.creditLimitPayload(customerId)).log().all().when()
-				.post(creditLimitURI).then().log().all().assertThat().statusCode(200).extract().response()
+				.body(PayLoads.RequestPayloads.blockCreditLimitPayload(customerId)).log().all().when()
+				.post(blockCreditLimitURI).then().log().all().assertThat().statusCode(200).extract().response()
 				.asString();
 
 		JsonPath bindingDataRes = reuseableMethods.rawToJson(creditLimitData);
@@ -149,39 +149,7 @@ public class CreditLimit {
 		// Assert.assertEquals(validRequest, "true");
 
 	}
-	@Test(priority = 4)
-	public void createCreditLimitForSameUser() throws SQLException {
-		log.info("Verify by create credit limit to User multiple time ");
-		RestAssured.baseURI = baseURILoan;
-		String multipleCreditLimitData = given().log().all().spec(reuseableMethods.setup())
-				.header("Authorization", "Bearer" + " " + Token).header("userId", UserLoginId)
-				.body(PayLoads.RequestPayloads.creditLimitPayload(customerId)).log().all().when()
-				.post(creditLimitURI).then().log().all().assertThat().statusCode(200).extract().response()
-				.asString();
 
-		JsonPath multipleCreditLimit = reuseableMethods.rawToJson(multipleCreditLimitData);
-		String responseCode = multipleCreditLimit.get("responseCode");
-		String responseMessage = multipleCreditLimit.get("responseMessage");
-		Boolean validationSuccess = multipleCreditLimit.get("validationSuccess");
-		Boolean processingSuccess = multipleCreditLimit.get("processingSuccess");
-		String responceObject = multipleCreditLimit.get("responseObject");
-		String validationErrors = multipleCreditLimit.get("validationErrors");
-		String processingErrors = multipleCreditLimit.get("processingErrors");
-		String securityKey = multipleCreditLimit.get("securityKey");
-		String callbackURL = multipleCreditLimit.get("callbackURL");
-		Boolean validRequest = multipleCreditLimit.get("validRequest");
-		Assert.assertEquals(responseCode, "3001");
-		Assert.assertEquals(responseMessage, "Credit limit already created of given user");
-		// Assert.assertEquals(validationSuccess, "true");
-		// Assert.assertEquals(processingSuccess, "true");
-		Assert.assertEquals(responceObject, null);
-		Assert.assertEquals(validationErrors, null);
-		Assert.assertEquals(processingErrors, null);
-		Assert.assertEquals(securityKey, "");
-		Assert.assertEquals(callbackURL, null);
-		// Assert.assertEquals(validRequest, "true");
-
-	}
 
 	@AfterClass(groups = { "smoke", "regression" })
 	public void cleanUp() throws SQLException {

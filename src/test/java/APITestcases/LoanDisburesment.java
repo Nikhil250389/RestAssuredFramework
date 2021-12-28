@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 //import com.Utilities.OracleConnection;
 
@@ -31,6 +32,7 @@ public class LoanDisburesment {
 	String resCifNumber;
 	String customerId;
 	String bindingId;
+	String creditLimitId;
 	String partnerCode = RestUtils.partnerCode();
 	String username = RestUtils.getUserName();
 	String bankAccountNo = RestUtils.bankAccountNo();
@@ -40,7 +42,7 @@ public class LoanDisburesment {
 	String cifNumber = RestUtils.cifNumber();
 	String TrxId = RestUtils.TrxId();
 	Integer creditLimitAmount;
-	
+
 	public static String configProperty = "./src/main/java/propertiesFiles/config.properties";
 	public static RestUtill.Utilities utilities = new RestUtill.Utilities();
 	String BaseURI = RestUtill.Utilities.getPropertyValue(configProperty, "baseURI");
@@ -52,11 +54,11 @@ public class LoanDisburesment {
 	String bindingOrReBindingURI = RestUtill.Utilities.getPropertyValue(configProperty, "bindingOrReBindingURI");
 	String updateCreditLimitURI = RestUtill.Utilities.getPropertyValue(configProperty, "updateCreditLimitURI");
 	String loanDisbursementUri = RestUtill.Utilities.getPropertyValue(configProperty, "loanDisbursementUri");
-	
-	
-	public static Logger log = LogManager.getLogger(LoanDisburesment.class.getName());
 
-	@BeforeMethod()
+	public static Logger log = LogManager.getLogger(LoanDisburesment.class.getName());
+	SoftAssert softassert = new SoftAssert();
+
+	@BeforeMethod(groups = { "smoke", "regression" })
 	public void userLogin() {
 		RestAssured.baseURI = BaseURI;
 		String response = given().log().all().spec(reuseableMethods.setup()).header("userId", UserId)
@@ -85,10 +87,11 @@ public class LoanDisburesment {
 		String responseMessage = createBorrowerRes.get("responseMessage");
 		resCifNumber = createBorrowerRes.get("responseObject.cifNumber");
 		customerId = createBorrowerRes.get("responseObject.customerId");
-		Assert.assertEquals(responseCode, "0000");
-		Assert.assertEquals(responseMessage, "Successfully Registered Customer");
-		Assert.assertEquals(resCifNumber, cifNumber);
-		Assert.assertEquals(customerId, customerId);
+		softassert.assertEquals(responseCode, "0000");
+		softassert.assertEquals(responseMessage, "Successfully Registered Customer");
+		softassert.assertEquals(resCifNumber, cifNumber);
+		softassert.assertEquals(customerId, customerId);
+		softassert.assertAll();
 	}
 
 	@Test(priority = 2)
@@ -104,9 +107,10 @@ public class LoanDisburesment {
 		String responseCode = bindingDataRes.get("responseCode");
 		String responseMessage = bindingDataRes.get("responseMessage");
 		bindingId = bindingDataRes.get("responseObject.bindingId");
-		Assert.assertEquals(responseCode, "0000");
-		Assert.assertEquals(responseMessage, "Customer Binding Successfully");
-		Assert.assertEquals(bindingId, bindingId);
+		softassert.assertEquals(responseCode, "0000");
+		softassert.assertEquals(responseMessage, "Customer Binding Successfully");
+		softassert.assertEquals(bindingId, bindingId);
+		softassert.assertAll();
 
 	}
 
@@ -116,9 +120,8 @@ public class LoanDisburesment {
 		RestAssured.baseURI = baseURILoan;
 		String creditLimitData = given().log().all().spec(reuseableMethods.setup())
 				.header("Authorization", "Bearer" + " " + Token).header("userId", UserLoginId)
-				.body(PayLoads.RequestPayloads.creditLimitPayload(customerId)).log().all().when()
-				.post(creditLimitURI).then().log().all().assertThat().statusCode(200).extract().response()
-				.asString();
+				.body(PayLoads.RequestPayloads.creditLimitPayload(customerId)).log().all().when().post(creditLimitURI)
+				.then().log().all().assertThat().statusCode(200).extract().response().asString();
 
 		JsonPath bindingDataRes = reuseableMethods.rawToJson(creditLimitData);
 		String responseCode = bindingDataRes.get("responseCode");
@@ -128,7 +131,7 @@ public class LoanDisburesment {
 		String crCifNumber = bindingDataRes.get("responseObject.cifNumber");
 		String crCustomerId = bindingDataRes.get("responseObject.customerId");
 		String crPkNumber = bindingDataRes.get("responseObject.pkNumber");
-		String creditLimitId = bindingDataRes.get("responseObject.creditLimitId");
+		creditLimitId = bindingDataRes.get("responseObject.creditLimitId");
 		Integer creditLimitAmount = bindingDataRes.get("responseObject.creditLimitAmount");
 		Integer creditLimitAvailable = bindingDataRes.get("responseObject.creditLimitAvailable");
 		String creditLimitStatus = bindingDataRes.get("responseObject.creditLimitStatus");
@@ -137,56 +140,17 @@ public class LoanDisburesment {
 		String securityKey = bindingDataRes.get("securityKey");
 		String callbackURL = bindingDataRes.get("callbackURL");
 		Boolean validRequest = bindingDataRes.get("validRequest");
-		Assert.assertEquals(responseCode, "0000");
-		Assert.assertEquals(responseMessage, "Success create limit");
-		// Assert.assertEquals(validationSuccess, "true");
-		// Assert.assertEquals(processingSuccess, "true");
-		Assert.assertEquals(crCifNumber, resCifNumber);
-		Assert.assertEquals(crCustomerId, customerId);
-		Assert.assertEquals(crPkNumber, "TEST_PK_NUMBER");
-		Assert.assertEquals(creditLimitStatus, "ACTIVE");
-		Assert.assertEquals(validationErrors, null);
-		Assert.assertEquals(processingErrors, null);
-		Assert.assertEquals(securityKey, "");
-		Assert.assertEquals(callbackURL, null);
-		// Assert.assertEquals(validRequest, "true");
+		softassert.assertEquals(responseCode, "0000");
+		softassert.assertEquals(responseMessage, "Success create limit");
+		softassert.assertEquals(crCifNumber, resCifNumber);
+		softassert.assertEquals(crCustomerId, customerId);
+		softassert.assertEquals(crPkNumber, "TEST_PK_NUMBER");
+		softassert.assertEquals(creditLimitStatus, "ACTIVE");
+		softassert.assertAll();
 
 	}
+
 	@Test(priority = 4)
-	public void createCreditLimitForSameUser() throws SQLException {
-		log.info("Verify by create credit limit to User multiple time ");
-		RestAssured.baseURI = baseURILoan;
-		String multipleCreditLimitData = given().log().all().spec(reuseableMethods.setup())
-				.header("Authorization", "Bearer" + " " + Token).header("userId", UserLoginId)
-				.body(PayLoads.RequestPayloads.creditLimitPayload(customerId)).log().all().when()
-				.post(creditLimitURI).then().log().all().assertThat().statusCode(200).extract().response()
-				.asString();
-
-		JsonPath multipleCreditLimit = reuseableMethods.rawToJson(multipleCreditLimitData);
-		String responseCode = multipleCreditLimit.get("responseCode");
-		String responseMessage = multipleCreditLimit.get("responseMessage");
-		Boolean validationSuccess = multipleCreditLimit.get("validationSuccess");
-		Boolean processingSuccess = multipleCreditLimit.get("processingSuccess");
-		String responceObject = multipleCreditLimit.get("responseObject");
-		String validationErrors = multipleCreditLimit.get("validationErrors");
-		String processingErrors = multipleCreditLimit.get("processingErrors");
-		String securityKey = multipleCreditLimit.get("securityKey");
-		String callbackURL = multipleCreditLimit.get("callbackURL");
-		Boolean validRequest = multipleCreditLimit.get("validRequest");
-		Assert.assertEquals(responseCode, "3001");
-		Assert.assertEquals(responseMessage, "Credit limit already created of given user");
-		// Assert.assertEquals(validationSuccess, "true");
-		// Assert.assertEquals(processingSuccess, "true");
-		Assert.assertEquals(responceObject, null);
-		Assert.assertEquals(validationErrors, null);
-		Assert.assertEquals(processingErrors, null);
-		Assert.assertEquals(securityKey, "");
-		Assert.assertEquals(callbackURL, null);
-		// Assert.assertEquals(validRequest, "true");
-
-	}
-	
-	@Test(priority = 5)
 	public void UpdateCreditLimitForUser() throws SQLException {
 		log.info("Verify by Update credit limit of User ");
 		RestAssured.baseURI = baseURILoan;
@@ -213,39 +177,26 @@ public class LoanDisburesment {
 		String securityKey = updateCreditLimit.get("securityKey");
 		String callbackURL = updateCreditLimit.get("callbackURL");
 		Boolean validRequest = updateCreditLimit.get("validRequest");
-		Assert.assertEquals(responseCode, "0000");
-		Assert.assertEquals(responseMessage, "Customer limit has been updated");
-		// Assert.assertEquals(validationSuccess, "true");
-		// Assert.assertEquals(processingSuccess, "true");
-		Assert.assertEquals(upCifNumber, resCifNumber);
-		Assert.assertEquals(upCustomerId, customerId);
-		Assert.assertEquals(upPkNumber, "TEST_PK_NUMBER");
-		Assert.assertEquals(creditLimitStatus, "ACTIVE");
-		Assert.assertEquals(validationErrors, null);
-		Assert.assertEquals(processingErrors, null);
-		Assert.assertEquals(securityKey, "");
-		Assert.assertEquals(callbackURL, null);
-		// Assert.assertEquals(validRequest, "true");
+		softassert.assertEquals(responseCode, "0000");
+		softassert.assertEquals(responseMessage, "Customer limit has been updated");
+		softassert.assertEquals(upCifNumber, resCifNumber);
+		softassert.assertEquals(upCustomerId, customerId);
+		softassert.assertEquals(upPkNumber, "TEST_PK_NUMBER");
+		softassert.assertEquals(creditLimitStatus, "ACTIVE");
+		softassert.assertAll();
 
+	}
 
-
-	// @AfterClass public void cleanUp() throws SQLException {
-	// log.info("Deleting Above borrower user from DB"); oc.cleanUp("basicuser",
-	// "id",
-	// customerId);
-
-}
-
-	@Test(priority = 5)
+	@Test(priority = 5, groups = { "smoke", "regression" })
 	public void loanDirsbumentPositive() throws SQLException {
 		log.info("Verify by perform loan disbursement for User ");
 		RestAssured.baseURI = baseURILoan;
 		String disrusbmentData = given().log().all().spec(reuseableMethods.setup())
 				.header("Authorization", "Bearer" + " " + Token).header("userId", UserLoginId)
-				.body(PayLoads.RequestPayloads.loanDirsbument(bindingId,TrxId)).log().all().when()
+				.body(PayLoads.RequestPayloads.loanDirsbument(bindingId, TrxId)).log().all().when()
 				.post(loanDisbursementUri).then().log().all().assertThat().statusCode(200).extract().response()
 				.asString();
-		
+
 		JsonPath disrusbmentDataRes = reuseableMethods.rawToJson(disrusbmentData);
 		String responseCode = disrusbmentDataRes.get("responseCode");
 		String responseMessage = disrusbmentDataRes.get("responseMessage");
@@ -253,8 +204,7 @@ public class LoanDisburesment {
 		Boolean processingSuccess = disrusbmentDataRes.get("processingSuccess");
 		String loanPartnerTrxId = disrusbmentDataRes.get("responseObject.partnerTrxId");
 		String loanAccountNumber = disrusbmentDataRes.get("responseObject.loanAccountNumber");
-		
-		String creditLimitId = disrusbmentDataRes.get("responseObject.creditLimitId");
+        String loanCreditLimitId = disrusbmentDataRes.get("responseObject.creditLimitId");
 		Integer loanCreditLimitAmount = disrusbmentDataRes.get("responseObject.creditLimitAmount");
 		Integer creditLimitAvailable = disrusbmentDataRes.get("responseObject.creditLimitAvailable");
 		String creditLimitStatus = disrusbmentDataRes.get("responseObject.creditLimitStatus");
@@ -263,29 +213,30 @@ public class LoanDisburesment {
 		String securityKey = disrusbmentDataRes.get("securityKey");
 		String callbackURL = disrusbmentDataRes.get("callbackURL");
 		Boolean validRequest = disrusbmentDataRes.get("validRequest");
-		Assert.assertEquals(responseCode, "0000");
-		Assert.assertEquals(responseMessage, "Disbursement is success");
-		// Assert.assertEquals(validationSuccess, "true");
-		// Assert.assertEquals(processingSuccess, "true");
-		Assert.assertEquals(loanCreditLimitAmount, creditLimitAmount);
-//		Assert.assertEquals(upCustomerId, customerId);
-	//	Assert.assertEquals(upPkNumber, "TEST_PK_NUMBER");
-		Assert.assertEquals(creditLimitStatus, "ACTIVE");
-		Assert.assertEquals(validationErrors, null);
-		Assert.assertEquals(processingErrors, null);
-		Assert.assertEquals(securityKey, "");
-		Assert.assertEquals(callbackURL, null);
-		// Assert.assertEquals(validRequest, "true");
+		softassert.assertEquals(responseCode, "0000");
+		softassert.assertEquals(responseMessage, "Disbursement is success");
+		softassert.assertTrue(validationSuccess.equals(true));
+		softassert.assertTrue(processingSuccess.equals(true));
+		softassert.assertEquals(loanPartnerTrxId, TrxId);
+		softassert.assertEquals(loanCreditLimitId, creditLimitId);
+		softassert.assertEquals(creditLimitStatus, "ACTIVE");
+		softassert.assertEquals(validationErrors, null);
+		softassert.assertEquals(processingErrors, null);
+		softassert.assertEquals(securityKey, "");
+		softassert.assertEquals(callbackURL, null);
+		softassert.assertTrue(validRequest.equals(true));
+		softassert.assertAll();
 	}
-		@AfterClass(groups = { "smoke", "regression" })
-		public void cleanUp() throws SQLException {
-			oc = new ReuseableMethods.OracleConnection();
-			oc.setUpConnection();
-			log.info("Deleting Above borrower user from Borrower Table");
-			System.out.println("Customer Id of tested borrouer user is" + ">>>" + customerId);
-			oc.cleanUp("BORROWERUSER", "CUSTOMERID", customerId);
-			System.out.println("Mobile NO of tested borrouer user is" + ">>> " + mobileNumber);
-			log.info("Deleting Above borrower user from Basic User Table");
-	        oc.cleanUp("BASICUSER", "MOBILENUMBER", mobileNumber);
-		}
+
+	@AfterClass(groups = { "smoke", "regression" })
+	public void cleanUp() throws SQLException {
+		oc = new ReuseableMethods.OracleConnection();
+		oc.setUpConnection();
+		log.info("Deleting Above borrower user from Borrower Table");
+		System.out.println("Customer Id of tested borrouer user is" + ">>>" + customerId);
+		oc.cleanUp("BORROWERUSER", "CUSTOMERID", customerId);
+		System.out.println("Mobile NO of tested borrouer user is" + ">>> " + mobileNumber);
+		log.info("Deleting Above borrower user from Basic User Table");
+		oc.cleanUp("BASICUSER", "MOBILENUMBER", mobileNumber);
+	}
 }

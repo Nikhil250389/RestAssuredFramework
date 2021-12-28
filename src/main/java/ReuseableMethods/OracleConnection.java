@@ -303,6 +303,12 @@ public class OracleConnection {
 		String valueFromDb = getStringValuesFromDBQuery(query, columnName);
 		return valueFromDb;
 	}
+	
+	public String fetchDBData(String tableName, String key, String value) throws SQLException {
+		String query = "SELECT  * FROM " + tableName + " WHERE " + key + " = '" + value + "'";
+		String valueFromDb = getStringValuesFromDBQuery(query);
+		return valueFromDb;
+	}
 
 	public String countDataFromDb(String query) throws SQLException {
 		String valueFromDb = getStringValuesFromDBQuery(query, "count");

@@ -23,6 +23,20 @@ public class RequestPayloads {
 				"}";
 
 	}
+	public static String blockCreditLimitPayload(String customerId)
+
+	{
+		return "{\r\n" + 
+				"\"customerID\":\""+customerId+"\",\r\n" + 
+				"\"decision\": 2,\r\n" + 
+				"\"creditLimitAmount\": 500000,\r\n" + 
+				"\"blockCode\":\"BC01\",\r\n" + 
+				"\"emailAddress\": \"\",\r\n" + 
+				"\"phoneNumber\": \"\"\r\n" + 
+				"}";
+
+	}
+	
 	public static String updateCreditLimitPayload(String customerId)
 
 	{

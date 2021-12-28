@@ -3,11 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="DataDrivenTest.dataProvide">
+      <class name="APITestcases.LoanDisburesment">
         <methods>
-          <include name="testCaseData"/>
+          <include name="loanDirsbumentPositive"/>
+          <include name="userLogin"/>
+          <include name="cleanUp"/>
         </methods>
-      </class> <!-- DataDrivenTest.dataProvide -->
+      </class> <!-- APITestcases.LoanDisburesment -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

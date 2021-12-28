@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\nikhil.kharkhodia\AppData\Local\Temp\testng-eclipse--1665487145\testng-customsuite.xml</span>
+                    <span>C:\Users\nikhil.kharkhodia\AppData\Local\Temp\testng-eclipse-581030086\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">4 methods,   4 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,12 +102,22 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="DataDrivenTest.dataProvide" hash-for-method="testCaseData(nik, QA, 1107)">testCaseData(nik, QA, 1107)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="APITestcases.CreditLimit" hash-for-method="bindingUserWithValidPartner">bindingUserWithValidPartner</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="DataDrivenTest.dataProvide" hash-for-method="testCaseData(Agastya, IAS, 4)">testCaseData(Agastya, IAS, 4)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="APITestcases.CreditLimit" hash-for-method="createBorrowerUser">createBorrowerUser</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="APITestcases.CreditLimit" hash-for-method="createCreditLimit">createCreditLimit</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="APITestcases.CreditLimit" hash-for-method="createCreditLimitForSameUser">createCreditLimitForSameUser</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -125,23 +135,35 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">DataDrivenTest.dataProvide</span>
+              <span class="class-name">APITestcases.CreditLimit</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testCaseData(nik, QA, 1107)">
-                  </a> <!-- testCaseData(nik, QA, 1107) -->
-                  <span class="method-name">testCaseData</span>
-                  <span class="parameters">(nik, QA, 1107)</span>
+                  <a name="bindingUserWithValidPartner">
+                  </a> <!-- bindingUserWithValidPartner -->
+                  <span class="method-name">bindingUserWithValidPartner</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testCaseData(Agastya, IAS, 4)">
-                  </a> <!-- testCaseData(Agastya, IAS, 4) -->
-                  <span class="method-name">testCaseData</span>
-                  <span class="parameters">(Agastya, IAS, 4)</span>
+                  <a name="createBorrowerUser">
+                  </a> <!-- createBorrowerUser -->
+                  <span class="method-name">createBorrowerUser</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createCreditLimit">
+                  </a> <!-- createCreditLimit -->
+                  <span class="method-name">createCreditLimit</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createCreditLimitForSameUser">
+                  </a> <!-- createCreditLimitForSameUser -->
+                  <span class="method-name">createCreditLimitForSameUser</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -149,7 +171,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\nikhil.kharkhodia\AppData\Local\Temp\testng-eclipse--1665487145\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\nikhil.kharkhodia\AppData\Local\Temp\testng-eclipse-581030086\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -158,7 +180,7 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;DataDrivenTest.dataProvide&quot;/&gt;
+      &lt;class name=&quot;APITestcases.CreditLimit&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -198,20 +220,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(4);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testCaseData')
-data.setCell(0, 2, 'DataDrivenTest.dataProvide')
-data.setCell(0, 3, 7);
+data.setCell(0, 1, 'createBorrowerUser')
+data.setCell(0, 2, 'APITestcases.CreditLimit')
+data.setCell(0, 3, 2016);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testCaseData')
-data.setCell(1, 2, 'DataDrivenTest.dataProvide')
-data.setCell(1, 3, 1);
+data.setCell(1, 1, 'createCreditLimitForSameUser')
+data.setCell(1, 2, 'APITestcases.CreditLimit')
+data.setCell(1, 3, 1081);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'createCreditLimit')
+data.setCell(2, 2, 'APITestcases.CreditLimit')
+data.setCell(2, 3, 908);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'bindingUserWithValidPartner')
+data.setCell(3, 2, 'APITestcases.CreditLimit')
+data.setCell(3, 3, 527);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 8 ms</span>
+              <span class="suite-total-time">Total running time: 4 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -237,15 +267,43 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">DataDrivenTest.dataProvide</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <span class="method-name">testCaseData(nik, QA, 1107)</span>
+              <div class="chronological-class-name">APITestcases.CreditLimit</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">userLogin</span>
                 <span class="method-start">0 ms</span>
-              </div> <!-- test-method -->
+              </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">testCaseData(Agastya, IAS, 4)</span>
-                <span class="method-start">8 ms</span>
+                <span class="method-name">createBorrowerUser</span>
+                <span class="method-start">2747 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">userLogin</span>
+                <span class="method-start">4765 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">bindingUserWithValidPartner</span>
+                <span class="method-start">5621 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">userLogin</span>
+                <span class="method-start">6149 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">createCreditLimit</span>
+                <span class="method-start">7054 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">userLogin</span>
+                <span class="method-start">7968 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">createCreditLimitForSameUser</span>
+                <span class="method-start">10008 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">cleanUp</span>
+                <span class="method-start">11090 ms</span>
+              </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

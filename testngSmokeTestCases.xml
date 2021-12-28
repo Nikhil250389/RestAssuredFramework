@@ -21,6 +21,11 @@
       </test> <!-- Test -->
       
 
+	<test name="Verify by perfome loan disbursment functionality testcases">
+		<classes>
+			<class name="APITestcases.LoanDisburesment" />
+		</classes>
+	</test> <!-- Test -->
 
 
 </suite> <!-- Suite -->

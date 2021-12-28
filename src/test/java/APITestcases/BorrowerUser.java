@@ -50,7 +50,7 @@ public class BorrowerUser {
 	SoftAssert softassert = new SoftAssert();
 
 	@BeforeMethod(groups = { "smoke", "regression" })
-	public void userLogin() {
+	public void userLogin() throws SQLException {
 		RestAssured.baseURI = BaseURI;
 		String response = given().log().all().spec(reuseableMethods.setup()).header("userId", UserId)
 				.body(PayLoads.RequestPayloads.userLoginChecker()).log().all().when().post(checkerLoginURI).then().log()
@@ -60,7 +60,8 @@ public class BorrowerUser {
 		JsonPath js = reuseableMethods.rawToJson(response);
 		UserLoginId = js.get("responseObject.id");
 		Token = js.getString("responseObject.loginToken");
-
+		oc = new ReuseableMethods.OracleConnection();
+		oc.setUpConnection();
 	}
 
 	@Test(priority = 1, groups = { "smoke", "regression" })
@@ -214,8 +215,7 @@ public class BorrowerUser {
 
 	@AfterClass(groups = { "smoke", "regression" })
 	public void cleanUp() throws SQLException {
-		oc = new ReuseableMethods.OracleConnection();
-		oc.setUpConnection();
+	
 		log.info("Deleting Above borrower user from Borrower Table");
 		System.out.println("Customer Id of tested borrouer user is" + ">>>" + customerId);
 		oc.cleanUp("BORROWERUSER", "CUSTOMERID", customerId);
