@@ -25,10 +25,10 @@ public	static RequestSpecification requestSpec;
 	public static RestUtill.Utilities utilities = new RestUtill.Utilities();
 //	String BaseURI = RestUtill.Utilities.getPropertyValue(configProperty, "baseURI");
 	static String ContentType = RestUtill.Utilities.getPropertyValue(configProperty, "Content-Type");
-	static String TenantCode = RestUtill.Utilities.getPropertyValue(configProperty, "tenantCode");
+//	static String Accept = RestUtill.Utilities.getPropertyValue(configProperty, "Accept");
 //	static String UserId = RestUtill.Utilities.getPropertyValue(configProperty, "userId");
-	static String locale = RestUtill.Utilities.getPropertyValue(configProperty, "locale");
-	static	String requestId = RestUtill.Utilities.getPropertyValue(configProperty, "requestId");
+//	static String locale = RestUtill.Utilities.getPropertyValue(configProperty, "locale");
+//	static	String requestId = RestUtill.Utilities.getPropertyValue(configProperty, "requestId");
 	public static Logger log = LogManager.getLogger(reuseableMethods.class.getName());
 
 //	@BeforeClass
@@ -37,11 +37,11 @@ public	static RequestSpecification requestSpec;
 		RequestSpecBuilder req_Builder=new RequestSpecBuilder();
 			
 		//req_Builder.addParam("myparam", "paramValue1");
-		req_Builder.addHeader("tenantCode", TenantCode);
+	//	req_Builder.addHeader("tenantCode", TenantCode);
 	//	req_Builder.addHeader("userId", UserId);
-		req_Builder.addHeader("locale", locale);
-		req_Builder.addHeader("requestId", requestId);
-	//	req_Builder.setBaseUri(BaseURI);
+	//	req_Builder.addHeader("locale", locale);
+	//	req_Builder.addHeader("requestId", requestId);
+		
 		req_Builder.setContentType(ContentType);
 		requestSpec=req_Builder.build();
 		

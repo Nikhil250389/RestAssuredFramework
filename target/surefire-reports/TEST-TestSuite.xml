@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="66.676" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="60.653" tests="9" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="D:\Automation_Workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf8303469344388069686.tmp"/>
+    <property name="classworlds.conf" value="D:\Automation_Workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf7920521990387321634.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_241\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_241/bin/server;C:/Program Files/Java/jre1.8.0_241/bin;C:/Program Files/Java/jre1.8.0_241/lib/amd64;C:\Program Files (x86)\RSA SecurID Token Common;C:\Program Files\RSA SecurID Token Common;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Java\jdk1.8.0_241\bin;C:\Program Files\Java\jre1.8.0_241\bin;C:\Program Files\PuTTY\;C:\Program Files\apache-maven-3.8.1\bin;C:\Program Files (x86)\nodejs\;C:\Users\nikhil.kharkhodia\AppData\Local\Programs\Python\Python39;C:\Users\nikhil.kharkhodia\AppData\Local\Programs\Python\Python39\Scripts;C:\Users\nikhil.kharkhodia\AppData\Local\Microsoft\WindowsApps;C:\Users\nikhil.kharkhodia\AppData\Local\Programs\Git\cmd;C:\Users\nikhil.kharkhodia\AppData\Roaming\npm;C:\Users\nikhil.kharkhodia\Desktop\eclipse;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -60,12 +60,203 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="createBorrowerUser" classname="APITestcases.BorrowerUser" time="6.142"/>
-  <testcase name="createBorrowerWithDuplicateValues" classname="APITestcases.BorrowerUser" time="1.108"/>
-  <testcase name="checkExistingBorrowerUser" classname="APITestcases.BorrowerUser" time="16.504"/>
-  <testcase name="updatedBorrowerUser" classname="APITestcases.BorrowerUser" time="1.255"/>
-  <testcase name="createBorrowerUser" classname="APITestcases.BindingAndRebinding" time="1.527"/>
-  <testcase name="bindingUserWithValidPartner" classname="APITestcases.BindingAndRebinding" time="0.917"/>
-  <testcase name="bindingUserWithInValidPartner" classname="APITestcases.BindingAndRebinding" time="0.881"/>
-  <testcase name="rebundingWithSameUser" classname="APITestcases.BindingAndRebinding" time="0.921"/>
+  <testcase name="createBorrowerUser" classname="APITestcases.BorrowerUser" time="4.834"/>
+  <testcase name="createBorrowerWithDuplicateValues" classname="APITestcases.BorrowerUser" time="0.88"/>
+  <testcase name="checkExistingBorrowerUser" classname="APITestcases.BorrowerUser" time="0.859"/>
+  <testcase name="updatedBorrowerUser" classname="APITestcases.BorrowerUser" time="0.718"/>
+  <testcase name="createBorrowerUser" classname="APITestcases.BindingAndRebinding" time="1.059"/>
+  <testcase name="bindingUserWithValidPartner" classname="APITestcases.BindingAndRebinding" time="0.588"/>
+  <testcase name="bindingUserWithInValidPartner" classname="APITestcases.BindingAndRebinding" time="0.595"/>
+  <testcase name="rebundingWithSameUser" classname="APITestcases.BindingAndRebinding" time="0.627"/>
+  <testcase name="loanDirsbumentPositive" classname="APITestcases.LoanDisburesment" time="0.669">
+    <failure message="The following asserts failed:&#10;	expected [0000] but found [6001],&#10;	expected [Disbursement is success] but found [Binding ID does not exists],&#10;	expected [true] but found [false],&#10;	expected [TrxIdPuAqaMsZ] but found [null],&#10;	expected [ACTIVE] but found [null]" type="java.lang.AssertionError">java.lang.AssertionError: 
+The following asserts failed:
+	expected [0000] but found [6001],
+	expected [Disbursement is success] but found [Binding ID does not exists],
+	expected [true] but found [false],
+	expected [TrxIdPuAqaMsZ] but found [null],
+	expected [ACTIVE] but found [null]
+	at APITestcases.LoanDisburesment.loanDirsbumentPositive(LoanDisburesment.java:228)
+</failure>
+    <system-out><![CDATA[Connected to the database!
+Customer Id of tested borrouer user is>>>211228157559
+Connected to the database!
+Mobile NO of tested borrouer user is>>> 9133002133
+Connected to the database!
+Rest Assured API Automation testCase execution start By ***** Nikhil Kharkhodia
+Rest Assured API Automation testCase execution start By ***** Nikhil Kharkhodia
+Rest Assured API Automation testCase execution start By ***** Nikhil Kharkhodia
+Request method:	POST
+Request URI:	http://10.243.218.18:30001/api/v1/login/noLogin/loginWithAnyCombo
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		tenantCode=tenantMandiriPaylater
+				locale=en_US
+				requestId=requestid1111100017
+				userId=null
+				Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "userIdentification": "ahmad.irfan",
+    "loginFieldType": "USER_NAME",
+    "password": "Mandiri1",
+    "userAgent": null,
+    "ipAddress": null,
+    "latitude": null,
+    "longitude": null,
+    "localTime": null,
+    "timezone": null
+}
+Request method:	POST
+Request URI:	http://10.243.218.18:30001/api/v1/login/noLogin/loginWithAnyCombo
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		tenantCode=tenantMandiriPaylater
+				locale=en_US
+				requestId=requestid1111100017
+				userId=null
+				Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "userIdentification": "ahmad.irfan",
+    "loginFieldType": "USER_NAME",
+    "password": "Mandiri1",
+    "userAgent": null,
+    "ipAddress": null,
+    "latitude": null,
+    "longitude": null,
+    "localTime": null,
+    "timezone": null
+}
+HTTP/1.1 200 OK
+Content-Encoding: gzip
+Expires: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+X-XSS-Protection: 1; mode=block
+Pragma: no-cache
+X-Frame-Options: DENY
+Date: Tue, 28 Dec 2021 05:51:49 GMT
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+Transfer-Encoding: chunked
+Content-Type: application/json
+
+{
+    "responseCode": "200",
+    "responseMessage": "",
+    "validationSuccess": true,
+    "processingSuccess": true,
+    "responseObject": {
+        "id": "7ebbd7a8-70fc-4fd7-be85-bc675dd71835",
+        "userDisplayName": "AhmadIrfan",
+        "loginToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI3ZWJiZDdhOC03MGZjLTRmZDctYmU4NS1iYzY3NWRkNzE4MzUiLCJnZW5lcmF0aW9uVGltZSI6IjIwMjEtMTItMjggMTI6NTE6NDkuMDkwIiwicm9sZUlkIjoiNjQ5NjNlNTYtNjg3Ni0xMWVhLWJjNTUtMDI0MmFjMTMwMDAzIiwiaXNzIjoiQVJUVEhBIiwidGVuYW50Q29kZSI6InRlbmFudE1hbmRpcmlQYXlsYXRlciIsInVzZXJJZCI6IjdlYmJkN2E4LTcwZmMtNGZkNy1iZTg1LWJjNjc1ZGQ3MTgzNSIsImlhdCI6MTY0MDY3MDcwOX0.V_hNH869D63QCPjXAn_ryiP-ZCJlFjczgtkSTfY85TPEjL673wjuVc61CUqbnaIKATJDIeASa3B0WzlcGxzO-g",
+        "loggedIn": true,
+        "tenantCode": "tenantMandiriPaylater",
+        "validTill": "2021-12-28",
+        "loginMessage": "Logged in Successfully",
+        "passwordExpired": false,
+        "roleId": "64963e56-6876-11ea-bc55-0242ac130003",
+        "agreementAccepted": false,
+        "forcePwdChange": false,
+        "roleSubType": "CHECKER"
+    },
+    "validationErrors": null,
+    "processingErrors": null,
+    "securityKey": "",
+    "callbackURL": null,
+    "validRequest": true
+}
+Request method:	POST
+Request URI:	http://10.243.218.18:30002/api/v1/inbound/create/disbursement
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		tenantCode=tenantMandiriPaylater
+				locale=en_US
+				requestId=requestid1111100017
+				Authorization=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI3ZWJiZDdhOC03MGZjLTRmZDctYmU4NS1iYzY3NWRkNzE4MzUiLCJnZW5lcmF0aW9uVGltZSI6IjIwMjEtMTItMjggMTI6NTE6NDkuMDkwIiwicm9sZUlkIjoiNjQ5NjNlNTYtNjg3Ni0xMWVhLWJjNTUtMDI0MmFjMTMwMDAzIiwiaXNzIjoiQVJUVEhBIiwidGVuYW50Q29kZSI6InRlbmFudE1hbmRpcmlQYXlsYXRlciIsInVzZXJJZCI6IjdlYmJkN2E4LTcwZmMtNGZkNy1iZTg1LWJjNjc1ZGQ3MTgzNSIsImlhdCI6MTY0MDY3MDcwOX0.V_hNH869D63QCPjXAn_ryiP-ZCJlFjczgtkSTfY85TPEjL673wjuVc61CUqbnaIKATJDIeASa3B0WzlcGxzO-g
+				userId=7ebbd7a8-70fc-4fd7-be85-bc675dd71835
+				Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "bindingId": "null",
+    "partnerTrxId": "TrxIdPuAqaMsZ",
+    "disbursementAmount": 500000,
+    "term": 3,
+    "productType": 1
+}
+Request method:	POST
+Request URI:	http://10.243.218.18:30002/api/v1/inbound/create/disbursement
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		tenantCode=tenantMandiriPaylater
+				locale=en_US
+				requestId=requestid1111100017
+				Authorization=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI3ZWJiZDdhOC03MGZjLTRmZDctYmU4NS1iYzY3NWRkNzE4MzUiLCJnZW5lcmF0aW9uVGltZSI6IjIwMjEtMTItMjggMTI6NTE6NDkuMDkwIiwicm9sZUlkIjoiNjQ5NjNlNTYtNjg3Ni0xMWVhLWJjNTUtMDI0MmFjMTMwMDAzIiwiaXNzIjoiQVJUVEhBIiwidGVuYW50Q29kZSI6InRlbmFudE1hbmRpcmlQYXlsYXRlciIsInVzZXJJZCI6IjdlYmJkN2E4LTcwZmMtNGZkNy1iZTg1LWJjNjc1ZGQ3MTgzNSIsImlhdCI6MTY0MDY3MDcwOX0.V_hNH869D63QCPjXAn_ryiP-ZCJlFjczgtkSTfY85TPEjL673wjuVc61CUqbnaIKATJDIeASa3B0WzlcGxzO-g
+				userId=7ebbd7a8-70fc-4fd7-be85-bc675dd71835
+				Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "bindingId": "null",
+    "partnerTrxId": "TrxIdPuAqaMsZ",
+    "disbursementAmount": 500000,
+    "term": 3,
+    "productType": 1
+}
+HTTP/1.1 200 OK
+Content-Encoding: gzip
+Expires: 0
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+X-XSS-Protection: 1; mode=block
+Pragma: no-cache
+X-Frame-Options: DENY
+Date: Tue, 28 Dec 2021 05:51:49 GMT
+Connection: keep-alive
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+Transfer-Encoding: chunked
+Content-Type: application/json
+
+{
+    "responseCode": "6001",
+    "responseMessage": "Binding ID does not exists",
+    "validationSuccess": false,
+    "processingSuccess": true,
+    "responseObject": null,
+    "validationErrors": null,
+    "processingErrors": null,
+    "securityKey": "",
+    "callbackURL": null,
+    "validRequest": true
+}
+]]></system-out>
+  </testcase>
 </testsuite>

@@ -321,5 +321,20 @@ public class OracleConnection {
 		String valueFromDb = getStringValuesFromDBQuery(query, columnName);
 		return valueFromDb.contains("1");
 	}
-
+	/*
+	public Object getBorrowerDatafromDB(String tableName, String key,String value) throws SQLException {
+		Connection conn = setUpConnection();
+		Statement stmt = conn.createStatement();
+		String query = "SELECT * FROM " + tableName + " WHERE " + key + " = '" + value + "'";
+		ResultSet rs = stmt.executeQuery(query);
+		BorrowerDetails bd= new BorrowerDetails();
+		bd.setCifNumber(rs.getString(key));
+		bd.setCUSTOMERID(cUSTOMERID);
+		while (rs.next()) {
+			values.add(rs.getString(fieldName));
+		}
+		System.out.println(values);
+		return values;
+	}
+*/
 }

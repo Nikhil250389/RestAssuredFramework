@@ -1,4 +1,14 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 66.676 s - in TestSuite
+Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 60.653 s <<< FAILURE! - in TestSuite
+loanDirsbumentPositive(APITestcases.LoanDisburesment)  Time elapsed: 0.669 s  <<< FAILURE!
+java.lang.AssertionError: 
+The following asserts failed:
+	expected [0000] but found [6001],
+	expected [Disbursement is success] but found [Binding ID does not exists],
+	expected [true] but found [false],
+	expected [TrxIdPuAqaMsZ] but found [null],
+	expected [ACTIVE] but found [null]
+	at APITestcases.LoanDisburesment.loanDirsbumentPositive(LoanDisburesment.java:228)
+
